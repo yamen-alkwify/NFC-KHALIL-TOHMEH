@@ -461,7 +461,6 @@ footer {
 }
 
 .ux-icon--whatsapp { --ux-icon: url("/assets/icons/whatsapp-icon.svg"); }
-.ux-icon--call { --ux-icon: url("/assets/icons/call-icon.svg"); }
 .ux-icon--email { --ux-icon: url("/assets/icons/email-icon.svg"); }
 .ux-icon--globe { --ux-icon: url("/assets/icons/globe-line-icon.svg"); }
 .ux-icon--add-contact { --ux-icon: url("/assets/icons/add-contact-icon.svg"); }

@@ -1,10 +1,10 @@
-# Obayda Abdul Baky — Digital Contact Card
+# Khalil Tohmeh — Digital Contact Card
 
-A fast, responsive digital contact card for Obayda Abdul Baky and Cham Holding.
+A fast, responsive digital contact card for Khalil Tohmeh and Cham Holding.
 
 ## Live website
 
-https://obayda-abdul-baky.pages.dev/
+https://nfc-khalil-tohmeh.pages.dev/
 
 ## Development
 
