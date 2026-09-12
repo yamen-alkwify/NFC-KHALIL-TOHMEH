@@ -5,13 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const contact = {
-  firstName: "Obayda",
-  lastName: "Abdul Baky",
-  fullName: "Obayda Abdul Baky",
+  firstName: "Khalil",
+  lastName: "Tohmeh",
+  fullName: "Khalil Tohmeh",
   company: "CHAM HOLDING",
-  phone1: "+963986333334",
-  phone2: "+963991239999",
-  email: "Obayda.abdulbaky@chamholding.sy",
+  phone1: "0933443446",
+  email: "Khaleel.Tohmeh@chamholding.sy",
   website: "https://damacham.sy/",
   address: "Yafour, The Eight Gate, Damascus, Syria",
 };
@@ -29,7 +28,7 @@ function showToast(message) {
 }
 
 function downloadContact() {
-  const fileUrl = new URL(`${import.meta.env.BASE_URL}Obayda-Abdul-Baky.vcf`, window.location.origin).href;
+  const fileUrl = new URL(`${import.meta.env.BASE_URL}Khalil-Tohmeh.vcf`, window.location.origin).href;
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
@@ -40,7 +39,7 @@ function downloadContact() {
 
   const downloadLink = document.createElement("a");
   downloadLink.href = fileUrl;
-  downloadLink.download = "Obayda-Abdul-Baky.vcf";
+  downloadLink.download = "Khalil-Tohmeh.vcf";
   downloadLink.type = "text/vcard";
   downloadLink.style.display = "none";
   document.body.append(downloadLink);

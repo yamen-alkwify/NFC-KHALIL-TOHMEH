@@ -1,15 +1,14 @@
 import { defineConfig } from "vite";
 
-const vcardFileName = "Obayda-Abdul-Baky.vcf";
+const vcardFileName = "Khalil-Tohmeh.vcf";
 const vcardContent = [
   "BEGIN:VCARD",
   "VERSION:3.0",
-  "N:Abdul Baky;Obayda;;;",
-  "FN:Obayda Abdul Baky",
+  "N:Tohmeh;Khalil;;;",
+  "FN:Khalil Tohmeh",
   "ORG:CHAM HOLDING",
-  "TEL;TYPE=CELL:+963986333334",
-  "TEL;TYPE=CELL:+963991239999",
-  "EMAIL;TYPE=WORK:Obayda.abdulbaky@chamholding.sy",
+  "TEL;TYPE=CELL:0933443446",
+  "EMAIL;TYPE=WORK:Khaleel.Tohmeh@chamholding.sy",
   "URL;TYPE=WORK:https://damacham.sy/",
   "ADR;TYPE=WORK:;;The Eight Gate;Yafour;Damascus;;Syria",
   "END:VCARD",
