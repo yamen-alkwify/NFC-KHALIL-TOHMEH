@@ -1,0 +1,58 @@
+name: Build Plesk deployment
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plesk-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Publish built files to production branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          publish_dir="$RUNNER_TEMP/plesk-production"
+          git clone --branch production --single-branch \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            "$publish_dir"
+
+          git -C "$publish_dir" rm -r -f --ignore-unmatch .
+          cp -R "$GITHUB_WORKSPACE/dist/." "$publish_dir/"
+          git -C "$publish_dir" config user.name "github-actions[bot]"
+          git -C "$publish_dir" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$publish_dir" add --all
+
+          if git -C "$publish_dir" diff --cached --quiet; then
+            echo "Production build is already up to date."
+            exit 0
+          fi
+
+          git -C "$publish_dir" commit -m "Deploy build ${GITHUB_SHA}"
+          git -C "$publish_dir" push origin HEAD:production
